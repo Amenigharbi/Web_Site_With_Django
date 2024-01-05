@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+
+{%block content %}
+        <!-- Section-->
+        <section class="py-5">
+            <div class="container px-4 px-lg-5 mt-5">
+                {%for p in pro%}
+                <div class="row-cols-l-2 row-cols-xl-4 justify-content-center">
+                    
+                    <div class="col mb-5">
+                       
+                        <div class="card h-100">
+                            <!-- Product image-->
+                            {%if p.proImage %}
+                            <img class="card-img-top" src="{{p.proImage.url}}" alt="..." />
+                            {%else%}
+                            <img class="card-img-top" src="https://www.mobismea.com/upload/iblock/2a0/2f5hleoupzrnz9o3b8elnbv82hxfh4ld/No%20Product%20Image%20Available.png" alt="..." />
+                             {%endif%}
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <a href="{% url 'ecommerce:product_detail' p.proSlug %}"class="fw-bolder">{{p}}</a>
+                                    <!-- Product price-->
+                                       {{p.Price}}
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
+                            </div>
+                        </div>
+            
+                    </div>
+                  
+                   
+                </div>
+                {%endfor%}
+            </div>
+        </section>
+{%endblock content %}
